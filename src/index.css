@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-attachment: #bdc3c7;
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.text-md {
+  font-size: 20px;
+  line-height: 20px;
+}
+.custom-shadow {
+  box-shadow: 0px 24px 48px 8px #011529;
+}
+
+.primary-navbar {
+  position: absolute !important;
+  transition: 0.5s linear;
+  top: 0 !important;
+  color: white;
+  box-shadow: 10px -15px 15px -15px rgba(118, 19, 19, 0.5);
+}
+.navbar-bg {
+  position: fixed !important;
+  top: 0px !important;
+  z-index: 9999 !important;
+  transition: 0.3s linear;
+  /* background: rgba(5, 65, 206, 0.524); */
+  background: #81ecec;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(3.7px);
+  -webkit-backdrop-filter: blur(3.7px);
+}
+
+.props-bg {
+  position: fixed !important;
+  top: 0px !important;
+  z-index: 9999 !important;
+  background: rgba(0, 0, 0, 0.403);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+
+.sm_d_h1 {
+  font-size: 62px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  text-transform: none;
+  line-height: 64px;
+  letter-spacing: 0px;
+}
+.header {
+  font-family: "Roboto", sans-serif;
+  font-size: 90px;
+  font-weight: 700;
+  text-transform: none;
+  line-height: 0.8em;
+  letter-spacing: 0px;
+}
+.medium_header,
+.my_h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 60px;
+  text-align: center;
+}
+.sm_d_h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  text-transform: capitalize;
+  line-height: 44px;
+  text-align: center;
+}
+
+.pre_text,
+.sm_header {
+  font-family: "Helvetica", Sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 27px;
+}
+.sm_pre_text {
+  font-family: "Helvetica", Sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  text-transform: none;
+  line-height: 30px;
+}
+
+.card_header,
+.my_h4 {
+  font-family: "Baloo Tamma 2", Sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  text-transform: none;
+  line-height: 40px;
+}
+
+.text_star {
+  text-align: left;
+}
+ /* ======== slider ============ */
+.swiper-button-next,
+.swiper-button-prev {
+  color: white;
+  background-color: orange;
+  padding: 20px;
+  border-radius: 50%;
+  height: 15px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 20px !important;
+}
+
+
+.glass{
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px #4747470b;
+  backdrop-filter: blur(7.1px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  @apply border-4 border-gray-50 shrink-0 h-3/4 w-[40%] rounded-3xl py-10 px-7 min-w-max;
+}
+
+/* using style from tailwind css */
+.btn{
+  @apply border bg-indigo-500 w-3/4 py-2 rounded-lg text-gray-50 shadow-sm text-center;
+}
+
+.btn:hover{
+  background-color: #ff6a6a;
+}
+
+.textbox{
+  @apply border-0 px-4 py-2 rounded-xl w-3/4 shadow-sm;
+  @apply focus:outline-none;
+}

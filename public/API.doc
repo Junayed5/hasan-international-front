@@ -1,0 +1,14 @@
+I need a some API
+    1. get all user
+        a. full name, (Name only A-Za-z)
+        b. email (please checking user already resituated)
+        c. Address (city, state, zip code,)
+
+    2. update user 
+        a. name
+        b, email,
+        c, address
+    
+    3, Sign-in user, (already created API) 
+        a, name, 
+        b, email
