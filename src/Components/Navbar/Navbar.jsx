@@ -16,6 +16,7 @@ const Navbar = () => {
   // console.log(user)
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  console.log(user);
 
   const showUserInfo = () => {
     setIsOpen(!isOpen);

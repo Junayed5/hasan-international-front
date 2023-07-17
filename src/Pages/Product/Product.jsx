@@ -10,11 +10,8 @@ import { useEffect } from "react";
 import axios from "axios";
 
 const Product = () => {
-  // call products api
-  const product = ProductsAxiosSwr("products");
   const [products, setProduct] = useState([]);
-  //  const products = product?.data?.products
-  const isLoading = product?.isLoading;
+  const isLoading = products?.isLoading;
 
   const dataArray = Array.from({ length: 16 });
 
@@ -35,10 +32,9 @@ const Product = () => {
     fetchProduct();
   }, []);
 
-  console.log(products)
 
   const handlePageClick = () => {
-    console;
+    // console;
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -97,7 +93,7 @@ const Product = () => {
                     <div className="h-6 bg-gray-300 rounded w-full animate-pulse"></div>
                   </div>
                 ))
-              : products.map((product) => (
+              : products?.map((product) => (
                   <div
                     key={product._id}
                     className="bg-white p-4 rounded shadow "
@@ -107,13 +103,13 @@ const Product = () => {
                       key={product._id}
                     >
                       <img
-                        src={product.img}
-                        alt={product.title}
+                        src={product.image}
+                        alt={product.name}
                         className="w-full h-auto mb-2"
                       />
                     </Link>
                     <h3 className="text-center text-lg font-bold">
-                      {product.title}
+                      {product.name} 
                     </h3>
                   </div>
                 ))}

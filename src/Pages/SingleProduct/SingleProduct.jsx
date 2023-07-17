@@ -7,12 +7,31 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../Components/reducer/ActionType/ProductAction";
 import { useEffect } from "react";
 import axios from "axios";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 
 const SingleProduct = () => {
   const state = useSelector((state) => state);
+  const [product, setProduct] = useState({});
+  const { user, logout } = useContext(AuthContext);
+  console.log(user);
+  console.log(product);
 
   const { id } = useParams();
-  
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`/v1/product/${id}`);
+        console.log(response);
+        setProduct(response.data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchProduct();
+  }, []);
 
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
@@ -40,10 +59,10 @@ const SingleProduct = () => {
   };
 
   const maxRating = 5;
-  const rating = sp.rating;
+  const rating = product.rating;
 
   const pricePercentage = Math.round(
-    100 - (sp?.sellPrice * 100) / sp?.regularPrice
+    100 - (product?.sellPrice * 100) / product?.regularPrice
   );
 
   const handleIncrement = () => {
@@ -89,7 +108,11 @@ const SingleProduct = () => {
         {/* 1st section  for image */}
         <div className="lg:w-2/5 lg:pr-2 relative">
           <div className="sticky top-0 bottom-0 lg:w-[450px] md:w-[350px] lg:h-[350px] md:pr-2">
-            <img className="rounded-lg h-full w-full" src={sp?.img} alt="" />
+            <img
+              className="rounded-lg h-full w-full"
+              src={product?.image}
+              alt=""
+            />
           </div>
         </div>
 
@@ -99,7 +122,7 @@ const SingleProduct = () => {
             sp?.eSell ? "lg:w-2/5" : "lg:w-4/5"
           } my-3 md:py-0 lg:pr-6 justify-center`}
         >
-          <div className=" text-lg text-black">{sp?.title}</div>
+          <div className=" text-lg text-black">{product?.name}</div>
           <hr className="w-full h-[2px] my-2 bg-gray-300" />
           <div className="md:flex">
             <div className="flex items-center">
@@ -113,20 +136,20 @@ const SingleProduct = () => {
                 </span>
               ))}
             </div>
-            <div className="w-full md:w-[150px]">1 Ratings</div>
+            <div className="w-full md:w-[150px]">{product?.rating} Ratings</div>
             {/* <div className="w-[50px] border h-[100px]">678 answered questions</div> */}
           </div>
-          {sp?.eSell ? (
+          {product?.price ? (
             <>
               <div className="md:flex ">
                 <div className="text-red-500 text-xl mr-2">
                   {" "}
-                  {pricePercentage}
+                  10
                   {"% "}
                 </div>
                 <div className=" flex">
                   <p className="text-xl"> $</p>
-                  <p className="text-3xl"> {sp?.sellPrice}</p>
+                  <p className="text-3xl"> {product?.price}</p>
                 </div>
               </div>
               <div className=" text-lg">
@@ -147,12 +170,13 @@ const SingleProduct = () => {
 
             <strong>About this item</strong>
             <ul>
-              {sp?.descriptions.map((description, index) => (
+              {/* {sp?.descriptions.map((description, index) => (
                 <li key={index}>
-                  <span className="dot-icon">&#8226;</span> {/* Dot icon */}
+                  <span className="dot-icon">&#8226;</span> Dot icon
                   <strong>{description.title}</strong> {description.des}
                 </li>
-              ))}
+              ))} */}
+              <p>{product.description}</p>
             </ul>
           </div>
         </div>
@@ -201,16 +225,18 @@ const SingleProduct = () => {
               <div>
                 {/* onClick={openPopup} */}
                 <div className="onClick={openPopup}">
-                  <button
-                    onClick={() => dispatch(addToCart(sp))}
-                    className={`w-full cursor-pointer py-1 text-center rounded-full ${
-                      !sp?.quantity
-                        ? "bg-gray-500 text-white opacity-50 cursor-not-allowed"
-                        : "bg-[#ffd817]"
-                    }`}
-                  >
-                    Add to Cart
-                  </button>
+                  <Link to={!user && `/sing-in`}>
+                    <button
+                      onClick={() => dispatch(addToCart(sp))}
+                      className={`w-full cursor-pointer py-1 text-center rounded-full ${
+                        !sp?.quantity
+                          ? "bg-gray-500 text-white opacity-50 cursor-not-allowed"
+                          : "bg-[#ffd817]"
+                      }`}
+                    >
+                      Add to Cart
+                    </button>
+                  </Link>
                 </div>
                 <div className="">
                   <div className="max-w-[1200px] px-3 mx-auto flex flex-col items-center justify-center"></div>

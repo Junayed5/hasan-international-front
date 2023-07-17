@@ -260,3 +260,5 @@ export const products = [
     quantity: 10,
   },
 ];
+
+export default products;
