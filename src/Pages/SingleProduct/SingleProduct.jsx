@@ -139,7 +139,7 @@ const SingleProduct = () => {
             <div className="w-full md:w-[150px]">{product?.rating} Ratings</div>
             {/* <div className="w-[50px] border h-[100px]">678 answered questions</div> */}
           </div>
-          {product?.price ? (
+          {product?.eSell ? (
             <>
               <div className="md:flex ">
                 <div className="text-red-500 text-xl mr-2">
@@ -154,7 +154,7 @@ const SingleProduct = () => {
               </div>
               <div className=" text-lg">
                 {" "}
-                <del>${sp?.regularPrice}</del>
+                <del>${product?.price}</del>
               </div>
             </>
           ) : (
@@ -181,11 +181,11 @@ const SingleProduct = () => {
           </div>
         </div>
         {/* 3rd section for buy information  */}
-        {sp?.eSell ? (
+        {product?.eSell ? (
           <div className="md:w-1/5 border rounded-lg p-5">
             <div className="flex items-start">
               <p className="">$</p>
-              <p className="text-2xl pt-0">{sp?.sellPrice}</p>
+              <p className="text-2xl pt-0">{product?.price}</p>
               <p className="">.00</p>
             </div>
             <p className="py-1">$1.30 Shipping to UAE</p>
@@ -193,12 +193,12 @@ const SingleProduct = () => {
               Delivery Friday, June 16. Order within 11 hrs 22 mins
             </p>
             <p className="py-1">Deliver to UAE</p>
-            {sp?.quantity > 0 ? (
+            {product?.quantity > 0 ? (
               <p className="py-1 text-[#007600]">In Stock</p>
             ) : (
               <p className="py-1 text-red-500"> Stock out</p>
             )}
-            {sp?.quantity ? (
+            {product?.quantity ? (
               <>
                 <p className="py-1 text-gray-800 ">Quantity</p>
                 <div className="flex justify-center items-center my-1">
@@ -227,9 +227,9 @@ const SingleProduct = () => {
                 <div className="onClick={openPopup}">
                   <Link to={!user && `/sing-in`}>
                     <button
-                      onClick={() => dispatch(addToCart(sp))}
+                      onClick={() => dispatch(addToCart(product))}
                       className={`w-full cursor-pointer py-1 text-center rounded-full ${
-                        !sp?.quantity
+                        !product?.quantity
                           ? "bg-gray-500 text-white opacity-50 cursor-not-allowed"
                           : "bg-[#ffd817]"
                       }`}
@@ -312,9 +312,9 @@ const SingleProduct = () => {
               </div>
 
               <button
-                onClick={() => handleAddToCart(sp.id)}
+                onClick={() => handleAddToCart(product._id)}
                 className={`w-full cursor-pointer py-1 mt-2 text-center rounded-full ${
-                  !sp?.quantity
+                  !product?.quantity
                     ? "bg-gray-500 text-white opacity-50 cursor-not-allowed"
                     : "bg-[#ffa51f]"
                 }`}

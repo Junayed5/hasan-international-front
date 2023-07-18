@@ -36,8 +36,13 @@ const DashboardLayout = () => {
       icon: FaUsers,
     },
     {
-      name: "Add Portfolio",
-      link: "/dashboard/add-portfolio",
+      name: "All Products",
+      link: "/dashboard/all-products",
+      icon: FaUsers,
+    },
+    {
+      name: "Add Product",
+      link: "/dashboard/product-add",
       icon: FaUsers,
     },
   ];

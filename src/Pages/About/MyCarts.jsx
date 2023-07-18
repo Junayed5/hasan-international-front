@@ -10,8 +10,8 @@ const MyCarts = () => {
     <div className="pt-4 bg-[#BDC3C7]">
       <div className="mx-auto flex flex-col max-w-[1000px] px-3 md:px-5 lg:px-0 dark:bg-gray-900 dark:text-gray-100">
         <ul className="flex flex-col divide-y divide-gray-700">
-        {myAddedProducts?.map((product) => {
-            return <AddedSingleProduct key={product._id} product={product} />;
+        {myAddedProducts?.map((product, index) => {
+            return <AddedSingleProduct key={index} product={product} />;
           })}
           
         </ul>

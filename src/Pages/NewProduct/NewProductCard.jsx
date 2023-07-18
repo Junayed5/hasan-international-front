@@ -9,7 +9,7 @@ const NewProductCard = ({ product }) => {
         {/* new product card  figure */}
         <figure>
           <div >
-            <img className="w-full rounded-t-2xl" src={product?.img} alt="car!" />
+            <img className="w-full rounded-t-2xl" src={product?.image} alt="car!" />
           </div>
         </figure>
         <button className="w-full mt-1 text-center rounded-2xl rounded-t-none  bg-blue-500 b p-2 text-xl text-white ">

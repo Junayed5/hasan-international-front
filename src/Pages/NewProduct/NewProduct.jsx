@@ -11,20 +11,39 @@ import product4 from "../../assets/new-products/product-4.jpeg";
 import product5 from "../../assets/new-products/product-5.jpeg";
 import product6 from "../../assets/new-products/product-6.jpeg";
 import product7 from "../../assets/new-products/product-7.jpeg";
+import { useState } from "react";
+import axios from "axios";
 
 SwiperCore.use([Navigation]);
 
 export const NewProduct = () => {
-  const products = [
-    { id: 1, img: product1 },
-    { id: 2, img: product2 },
-    { id: 3, img: product3 },
-    { id: 4, img: product4 },
-    { id: 5, img: product5 },
-    { id: 6, img: product6 },
-    { id: 7, img: product7 },
-  ];
-  
+  const [products, setProduct] = useState([]);
+  console.log(products);
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`/v1/product`);
+        console.log(response)
+        const slideArray = response.data.slice(0,11)
+        setProduct(slideArray);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchProduct();
+  }, []);
+  // const products = [
+  //   { id: 1, img: product1 },
+  //   { id: 2, img: product2 },
+  //   { id: 3, img: product3 },
+  //   { id: 4, img: product4 },
+  //   { id: 5, img: product5 },
+  //   { id: 6, img: product6 },
+  //   { id: 7, img: product7 },
+  // ];
+
   const swiperRefDes = useRef(null);
 
   useEffect(() => {

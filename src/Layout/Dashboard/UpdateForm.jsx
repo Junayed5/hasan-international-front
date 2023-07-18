@@ -1,10 +1,16 @@
 import axios from "axios";
+import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const ProductForm = () => {
+const UpdateForm = () => {
+  const { id } = useParams();
   const [error, setError] = useState();
+  const [product, setProduct] = useState({})
+  console.log(product);
 
   const {
     register,
@@ -12,16 +18,34 @@ const ProductForm = () => {
     formState: { errors, isValid },
   } = useForm();
 
+  useEffect(() => {
+    const fetchProduct = async () => {
+      try {
+        const response = await axios.get(`/v1/product/${id}`);
+        console.log(response);
+        setProduct(response.data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchProduct();
+  }, []);
+
   const onSubmit = async (data) => {
     console.log(data);
     try {
-      const response = await axios.post("/v1/product", data);
+      const response = await axios.put(`/v1/product/${id}`, data,{
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `barer ${localStorage.getItem('token')}`
+        }
+      });
       console.log(response);
       toast.success(response?.data?.message);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError(error?.response?.data?.message);
-      // console.error(error);
       toast.error(error?.response?.data?.message);
     }
   };
@@ -117,4 +141,4 @@ const ProductForm = () => {
   );
 };
 
-export default ProductForm;
+export default UpdateForm;

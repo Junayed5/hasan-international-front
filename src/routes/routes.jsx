@@ -17,6 +17,8 @@ import DashboardHome from "../Layout/Dashboard/DashboardHome";
 import PrivateRoute from "./PrivateRoute";
 import ProductForm from "../Layout/Dashboard/ProductForm";
 import CheckoutPay from "../Pages/About/CheckoutPay";
+import AllProducts from "../Layout/Dashboard/AllProducts";
+import UpdateForm from "../Layout/Dashboard/UpdateForm";
 
 const routes = createBrowserRouter([
   {
@@ -97,6 +99,14 @@ const routes = createBrowserRouter([
       {
         path: "/dashboard/product-add",
         element: <ProductForm/>,
+      },
+      {
+        path: "/dashboard/all-products",
+        element: <AllProducts/>,
+      },
+      {
+        path: "/dashboard/update-product/:id",
+        element: <UpdateForm/>,
       },
     ]
   },
