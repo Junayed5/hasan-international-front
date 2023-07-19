@@ -22,7 +22,7 @@ const Service = () => {
       </div>
       <div className="max-w-[1200px] mx-auto">
         <div className="lg:flex px-3 md:px-5">
-          <div className="lg:w-1/2  lg:overflow-y-scroll lg:h-[130.5vh]  lg:mr-14">
+          <div className="lg:w-1/2  lg:overflow-y-scroll lg:max-h-[850px] lg:mr-14">
             <div className="text-[18px] text-justify lg:pr-2">
               <span className="font-semibold"> 1. Services</span> <br />
               Hasan International Provide Integrated Service Solution.
@@ -119,7 +119,7 @@ const Service = () => {
             </div>
           </div>
           <div className="lg:w-1/2">
-            <div className="grid gap-5 mt-3 lg:h-[130.5vh]  lg:mt-3 lg:ml-32">
+            <div className="grid gap-5 mt-3 lg:mt-3 lg:ml-32">
               {appData.map((item) => (
                 <div key={item.id} className="bg-white px-4 flex justify-center items-center rounded shadow">
                   <img
@@ -136,7 +136,7 @@ const Service = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div>
   );
 };
 

@@ -1,4 +1,4 @@
-import app1 from "../assets/application/app-1.jpeg";
+  import app1 from "../assets/application/app-1.jpeg";
 import app2 from "../assets/application/app-2.jpeg";
 import app3 from "../assets/application/app-3.jpeg";
 import app4 from "../assets/application/app-4.jpeg";
@@ -10,14 +10,14 @@ import app9 from "../assets/application/app-9.png";
 const Application = () => {
 
   const appData = [
-    {id : 1, img : app1,  title : 'This is a title-1'},
-    {id : 2, img : app2,  title : 'This is a title-2'},
-    {id : 3, img : app3,  title : 'This is a title-3'},
-    {id : 4, img : app4,  title : 'This is a title-4'},
-    {id : 5, img : app5,  title : 'This is a title-5'},
-    {id : 6, img : app6,  title : 'This is a title-6'},
-    {id : 7, img : app7,  title : 'This is a title-7'},
-    {id : 8, img : app9,  title : 'This is a title-9'},
+    {id : 1, img : app1,  title : 'Medical'},
+    {id : 2, img : app2,  title : 'Pharmaceuticals'},
+    {id : 3, img : app3,  title : 'Beverage'},
+    {id : 4, img : app4,  title : 'Agriculture'},
+    {id : 5, img : app5,  title : 'Sea-water'},
+    {id : 6, img : app6,  title : 'Hotel and Apartment'},
+    {id : 7, img : app7,  title : 'Industrial'},
+    {id : 8, img : app9,  title : 'Boiler'},
   ]
 
   return (

@@ -18,14 +18,14 @@ const About = () => {
   }, []);
 
   const appData = [
-    { id: 1, img: app1, title: "This is a title-1" },
-    { id: 2, img: app2, title: "This is a title-2" },
-    { id: 3, img: app3, title: "This is a title-3" },
-    { id: 4, img: app4, title: "This is a title-4" },
-    { id: 5, img: app5, title: "This is a title-5" },
-    { id: 6, img: app6, title: "This is a title-6" },
-    { id: 7, img: app7, title: "This is a title-7" },
-    { id: 9, img: app9, title: "This is a title-9" },
+    {id : 1, img : app1,  title : 'Medical'},
+    {id : 2, img : app2,  title : 'Pharmaceuticals'},
+    {id : 3, img : app3,  title : 'Beverage'},
+    {id : 4, img : app4,  title : 'Agriculture'},
+    {id : 5, img : app5,  title : 'Sea-water'},
+    {id : 6, img : app6,  title : 'Hotel and Apartment'},
+    {id : 7, img : app7,  title : 'Industrial'},
+    {id : 8, img : app9,  title : 'Boiler'},
   ];
   return (
     <div className="bg-[#bdc3c7] ">
@@ -35,11 +35,11 @@ const About = () => {
           <h2 className=" my_h2 text-[#5f27cd] ">About us</h2>
         </div>
       </div>
-    <div className="max-w-[1200px] mx-auto mt-3 lg:pb-10">
+      <div className="max-w-[1200px] mx-auto mt-3 lg:pb-10">
         <div className="lg:flex">
-          <div className="lg:w-3/5 lg:h-[122.4vh] lg:overflow-y-scroll lg:mr-14 md:px-5 px-3">
+          <div className="lg:w-3/5 lg:max-h-[750px] lg:overflow-y-scroll lg:mr-14 md:px-5 px-3">
             <p className="text-[18px] text-justify lg:pr-2">
-              <span className="font-semibold"> Hasan International FZE</span> as
+              <span className="font-semibold"> Medicare International</span> as
               a Water treatment plant and medical equipment supplying and
               manufacturing company, also supplying water ¬filtration media,
               water filter, medical disposable and solar panel began as a vision
@@ -64,7 +64,7 @@ const About = () => {
               treatment plant, Solar Panel, Solar Controller, Solar Inverter,
               medical equipment, medical disposable.
               <br /> <br />
-              <span className="font-semibold">Hasan International FZE </span> is
+              <span className="font-semibold">Medicare International </span> is
               specialized in designing & manufacturing commercial, industrial,
               medical grade reverse osmosis (RO) water treatment and
               purification systems for over 15 years and also supply Medical
@@ -84,7 +84,7 @@ const About = () => {
           </div>
           <div className="lg:w-2/5">
             {/* <Application/> */}
-            <div className="grid md:grid-cols-2 gap-5 lg:ml-5 lg:h-[122.4vh] px-3 md:px-5 mt-4 lg:mt-0">
+            <div className="grid md:grid-cols-2 gap-5 lg:ml-5 lg:h-fit px-3 md:px-5 mt-4 lg:mt-0">
               {appData.map((item) => (
                 <div
                   key={item.id}
@@ -103,7 +103,7 @@ const About = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>
 
       <div className="bg-[#bdc3c7]">
         <div className=" max-w-[1200px] mx-auto">

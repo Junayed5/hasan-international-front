@@ -9,7 +9,7 @@ const ContactForm = () => {
       <form
         ref={form}
         className=" text-gray-100 w-full md:w-5/6 lg:w-1/2 mx-auto"
-        action="https://formsubmit.co/your@email.com"
+        action="https://formsubmit.co/sharmin.rakibul@gmail.com"
         method="POST"
       >
         <div className="mb-2 mt-2">

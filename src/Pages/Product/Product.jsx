@@ -11,6 +11,7 @@ import axios from "axios";
 
 const Product = () => {
   const [products, setProduct] = useState([]);
+  const [query, setQuery] = useState({})
   const isLoading = products?.isLoading;
 
   const dataArray = Array.from({ length: 16 });
@@ -18,10 +19,13 @@ const Product = () => {
   const totalPages = 5;
   const currentPage = 3;
 
+
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`/v1/product`);
+        const response = await axios.get(`/v1/product`, {
+          params: query
+        });
         console.log(response)
         setProduct(response.data);
       } catch (error) {
@@ -30,7 +34,7 @@ const Product = () => {
     };
 
     fetchProduct();
-  }, []);
+  }, [query]);
 
 
   const handlePageClick = () => {
@@ -62,6 +66,7 @@ const Product = () => {
                     key={i}
                     name={category.mainCategory}
                     subCategories={category.subCategories}
+                    setQuery = {setQuery}
                   />
                 ))}
               </div>
@@ -77,6 +82,7 @@ const Product = () => {
                 key={i}
                 name={category.mainCategory}
                 subCategories={category.subCategories}
+                setQuery={setQuery}
               />
             ))}
           </div>

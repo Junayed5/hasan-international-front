@@ -14,8 +14,6 @@ const SingleProduct = () => {
   const state = useSelector((state) => state);
   const [product, setProduct] = useState({});
   const { user, logout } = useContext(AuthContext);
-  console.log(user);
-  console.log(product);
 
   const { id } = useParams();
 
@@ -35,28 +33,6 @@ const SingleProduct = () => {
 
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
-  // sp ======  Single Product
-  const sp = {
-    _id: 1,
-    img: product1,
-    title: "SAMSUNG Galaxy Tab A7 Lite 8.7 32GB WiFi Android Tablet,",
-    rating: 5,
-    regularPrice: 1200,
-    sellPrice: 10,
-    descriptions: [
-      {
-        title: "LIGHT AND PORTABLE:",
-        des: " With its compact 8.7” screen, slim design and sturdy metal frame, Galaxy Tab A7 Lite tablet is perfectly sized for entertainment on the go; Easy for everyone to carry and travel with, especially kids. Technology: TFT",
-      },
-      {
-        title: "LIGHT AND PORTABLE:",
-        des: " With its compact 8.7” screen, slim design and sturdy metal frame, Galaxy Tab A7 Lite tablet is perfectly sized for entertainment on the go; Easy for everyone to carry and travel with, especially kids. Technology: TFT",
-      },
-    ],
-    note: "This device features an upgraded metal frame that helps protect against everyday hiccups; It's made to be durable, so your tablet keeps working even when handled by children’s accident-prone hands",
-    eSell: true,
-    quantity: 10,
-  };
 
   const maxRating = 5;
   const rating = product.rating;
@@ -119,7 +95,7 @@ const SingleProduct = () => {
         {/* 2nd section for product details */}
         <div
           className={`${
-            sp?.eSell ? "lg:w-2/5" : "lg:w-4/5"
+            product?.eSell ? "lg:w-2/5" : "lg:w-4/5"
           } my-3 md:py-0 lg:pr-6 justify-center`}
         >
           <div className=" text-lg text-black">{product?.name}</div>
@@ -149,7 +125,7 @@ const SingleProduct = () => {
                 </div>
                 <div className=" flex">
                   <p className="text-xl"> $</p>
-                  <p className="text-3xl"> {product?.price}</p>
+                  <p className="text-3xl"> {product?.sellPrice}</p>
                 </div>
               </div>
               <div className=" text-lg">

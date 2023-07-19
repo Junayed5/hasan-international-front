@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const Category = ({ name, subCategories, subSubCategories }) => {
+export const Category = ({ name, subCategories, subSubCategories, setQuery }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseEnter = () => {
@@ -21,6 +21,11 @@ export const Category = ({ name, subCategories, subSubCategories }) => {
         <li className="py-1">
           <strong>
             <p
+            onClick={() => {setQuery(prev => ({
+              ...prev, category:name
+            }));
+          console.log(name);
+          } }
               className={`py-1 px-2 border w-full ${
                 subCategories ? "" : "cursor-pointer"
               } `}
@@ -41,6 +46,7 @@ export const Category = ({ name, subCategories, subSubCategories }) => {
                     key={index}
                     name={subCategory.name}
                     subSubCategories={subCategory.subSubCategories}
+                    setQuery={setQuery}
                   />
                 ))}
               {subSubCategories && isHovered && (

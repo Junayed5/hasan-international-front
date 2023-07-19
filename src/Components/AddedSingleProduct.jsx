@@ -3,6 +3,7 @@ import { removeCart } from "./reducer/ActionType/ProductAction";
 
 const AddedSingleProduct = ({ product }) => {
   const dispatch = useDispatch();
+
   return (
     <div>
       <li className="flex flex-col py-6 sm:flex-row sm:justify-between">
@@ -21,10 +22,7 @@ const AddedSingleProduct = ({ product }) => {
                 
               </div>
               <div className="text-right">
-                <p className="text-lg font-semibold">{product?.price}</p>
-                <p className="text-sm line-through dark:text-gray-600">
-                  75.50€
-                </p>
+                <p className="text-lg font-semibold">{product?.sellPrice}</p>
               </div>
             </div>
             <div className="flex text-sm divide-x">
