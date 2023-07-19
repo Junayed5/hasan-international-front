@@ -62,7 +62,7 @@ const Navbar = () => {
                         className={`lg:text-center text-start ml-1 lg:-ml-4 text-white `}
                       >
                         <h1 className=" md:text-[40px] text-[18px] capitalize lg:-mb-3 lg:-mt-2 ">
-                          hasan international FZE
+                          Medicare International
                         </h1>
                         <h3
                           className={` md:text-[14px] text-[10px] lg:block font-normal capitalize text-[#81ecec]`}

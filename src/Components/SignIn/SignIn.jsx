@@ -96,7 +96,7 @@ const SingIn = () => {
                 : "bg-gray-500 cursor-not-allowed"
                 } bg-blue-500 text-white rounded-md `}
             >
-              Submit
+              Log in
             </button>
           </form>
           <div className="flex justify-between mt-4">

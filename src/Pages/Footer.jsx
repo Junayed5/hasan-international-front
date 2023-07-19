@@ -48,7 +48,7 @@ const Footer = () => {
 
                 <div className={`justify-center lg:justify-start flex items-center text-white`}>
                   <FiMail className="mr-2 text-[#69ECEC]" />
-                  <p className="text-[#69ECEC]">hasaninternational2020@gmail.com</p>
+                  <p className="text-[#69ECEC]">sharmin.rakibul@gmail.com</p>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start text-white">
                   <FiPhoneCall className="mr-2 text-[#69ECEC] " />
@@ -62,7 +62,7 @@ const Footer = () => {
             </div>
           </div>
           <p className="text-white text-center text-[14px] mt-4 lg:mt-0">
-            © Hasan International fze. All Rights Reserved
+            © Sharmin Jahan Lucky All Rights Reserved
           </p>
         </div>
       </footer>
